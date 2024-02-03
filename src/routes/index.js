@@ -5,7 +5,7 @@ const router = express.Router();
 // req.params: { "type": major/minor/etc, "root": rootnote }
 
 const {
-    getScalesByRootNote,
+    getScalesByTonic,
     // getScalesByType,
     // getScalesByName,
     // getScalesByRootAndType,
@@ -14,7 +14,7 @@ const {
 
 // router.get("/scales/:type", getScalesByType);
 // router.get("/scales/:name", getScalesByName);
-router.get("/scales/:rootNote", getScalesByRootNote)
+router.get("/scales/:tonic", getScalesByTonic)
 // router.get("/scales/:type/:rootnote", getScalesByRootAndType);
 // router.get("/scales/:notesinscale", getScalesByNotesInScale);
 

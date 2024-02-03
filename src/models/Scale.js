@@ -2,11 +2,15 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../db");
 
 const Scale = sequelize.define("Scale", {
+    scaleID: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+    },
     name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    rootNote: {
+    tonic: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -19,7 +23,7 @@ const Scale = sequelize.define("Scale", {
         type: DataTypes.STRING,
         allowNull: true
     },
-    intervalFormula: {
+    degreeFormula: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -27,7 +31,7 @@ const Scale = sequelize.define("Scale", {
         type: DataTypes.STRING,
         allowNull: true
     },
-    scaleEquivalents: {
+    scaleRelatives: {
         type: DataTypes.STRING,
         allowNull: true
     },
