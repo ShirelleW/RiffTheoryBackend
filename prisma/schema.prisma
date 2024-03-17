@@ -8,11 +8,11 @@ datasource db {
 }
 
 model Scales {
-  ID                   Int     @id(map: "PK__Scales__3214EC27578A3CBE") @default(autoincrement())
+  ID                   Int     @id(map: "PK__Scales__3214EC276993C39A") @default(autoincrement())
   name                 String  @db.NVarChar(100)
   tonic                String  @db.NVarChar(10)
   notesInScale         String  @db.NVarChar(200)
   stepFormula          String? @db.NVarChar(200)
-  scaleIntervalFormula String? @db.NVarChar(200)
-  chordalHarmonization String? @db.NVarChar(550)
+  scaleIntervalFormula String? @db.NVarChar(300)
+  chordalHarmonization String? @db.NVarChar(500)
 }
