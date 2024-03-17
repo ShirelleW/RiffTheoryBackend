@@ -1,21 +1,11 @@
-const express = require('express');
-const router = express.Router();
-
+import { Router } from "express" ;
+import getScaleByName from '../controllers/index.js'
 // Scales, type: major/minor/etc, root: root note
-// req.params: { "type": major/minor/etc, "root": rootnote }
+// req.params: { "type": major/minor/etc, "root": rootno te }
+const router = Router(); 
 
-const {
-    getScalesByTonic,
-    // getScalesByType,
-    // getScalesByName,
-    // getScalesByRootAndType,
-    // getScalesByNotesInScale
-} = require("../controllers/index");
+router.get("/name", getScaleByName);
 
-// router.get("/scales/:type", getScalesByType);
-// router.get("/scales/:name", getScalesByName);
-router.get("/scales/:tonic", getScalesByTonic)
-// router.get("/scales/:type/:rootnote", getScalesByRootAndType);
-// router.get("/scales/:notesinscale", getScalesByNotesInScale);
+// router.get("/filterbynotes", getScalesByNotesInScale);
 
-module.exports = router;
+export default router

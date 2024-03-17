@@ -1,22 +1,17 @@
-const sequelize = require("../db");
-const Scale = require("../models/Scale");
+import prisma from "../../server.js";
 
-// Make reuaseable function for handling get req
-exports.getScalesByTonic = async (req, res) => {
-    const { tonic } = req.params;
+const getScaleByName = async (req, res) => {
     try {
-        const scaleReq = await Scale.findAll({
-            where: { tonic: tonic }
-        });
+        const scales = await prisma.scales.findMany()
 
-        if (!scaleReq) {
+        if (!scales) {
             res.status(400).json({
                 success: false,
                 message: 'No scales found!',
             });
         } else {
             res.status(200).json({
-                scaleReq,
+                scales,
                 success: true,
                 message: 'All scales returned'
             })
@@ -29,3 +24,6 @@ exports.getScalesByTonic = async (req, res) => {
         });
     }
 }
+
+
+export default getScaleByName
