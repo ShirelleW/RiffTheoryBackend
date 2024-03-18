@@ -1,6 +1,6 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters","fullTextSearch"]
+  previewFeatures = ["driverAdapters", "fullTextSearch"]
 }
 
 datasource db {
@@ -10,7 +10,7 @@ datasource db {
 
 model scales {
   id                   Int     @id @default(autoincrement())
-  name                 String  @db.VarChar(100)
+  name                 String  @unique(map: "unique_name") @db.VarChar(100)
   tonic                String  @db.VarChar(10)
   notesinscale         String  @db.VarChar(200)
   stepformula          String? @db.VarChar(200)
