@@ -25,7 +25,6 @@ export const getScalesByName = async (req, res) => {
             })
         }
     } catch (error) {
-        console.log(error)
         res.status(400).json({
             success: false,
             message: `ERROR: ${error.message}`
@@ -43,7 +42,6 @@ export const getScalesByName = async (req, res) => {
                 : tonic.includes('b')
                     ? chromatic_notes_flat.indexOf(tonic)
                     : null
-            console.log(index)
 
             const scales = index ? await prisma.scales.findMany({
                 where: {
@@ -72,7 +70,7 @@ export const getScalesByName = async (req, res) => {
                 })
             }
         } catch (error) {
-            console.log(error)
+            (error)
             res.status(400).json({
                 success: false,
                 message: `ERROR: ${error.message}`
@@ -109,7 +107,6 @@ export const getScalesByName = async (req, res) => {
                 })
             }
         } catch (error) {
-            console.log(error)
             res.status(400).json({
                 success: false,
                 message: `ERROR: ${error.message}`
@@ -123,7 +120,6 @@ export const getScalesByName = async (req, res) => {
             let { name, tonic } = req.params;
 
             name = name.replace(/\s+/g, " & ");
-            console.log(name)
 
             // index === true indicates that the note param passed in is either sharp or flat
             const index = tonic.includes("#")
@@ -131,7 +127,6 @@ export const getScalesByName = async (req, res) => {
                 : tonic.includes('b')
                     ? chromatic_notes_flat.indexOf(tonic)
                     : null
-            console.log(index)
 
             const scales = index ? await prisma.scales.findMany({
                 where: {
@@ -170,7 +165,6 @@ export const getScalesByName = async (req, res) => {
                 })
             }
         } catch (error) {
-            console.log(error)
             res.status(400).json({
                 success: false,
                 message: `ERROR: ${error.message}`
@@ -183,7 +177,6 @@ export const getScalesByName = async (req, res) => {
             let { notes } = req.params;
 
             notes = [...notes.split(" ").sort()];
-            // console.log(notes);
 
             let query = [];
 
@@ -196,7 +189,6 @@ export const getScalesByName = async (req, res) => {
                     }
                 )
             }
-            // console.log(query);
 
             let scales = await prisma.scales.findMany({
                 where: {
@@ -225,7 +217,6 @@ export const getScalesByName = async (req, res) => {
                 })
             }
         } catch (error) {
-            console.log(error)
             res.status(400).json({
                 success: false,
                 message: `ERROR: ${error.message}`
