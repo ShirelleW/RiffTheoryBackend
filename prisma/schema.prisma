@@ -10,10 +10,10 @@ datasource db {
 
 model scales {
   id                   Int     @id @default(autoincrement())
-  name                 String  @unique(map: "unique_name") @db.VarChar(100)
-  tonic                String  @db.VarChar(10)
+  name                 String  @unique @db.VarChar(100)
+  tonic                String  @db.VarChar(5)
   notesinscale         String  @db.VarChar(200)
   stepformula          String? @db.VarChar(200)
   scaleintervalformula String? @db.VarChar(300)
-  chordalharmonization String? @db.VarChar(600)
+  chordalharmonization String? @db.VarChar(500)
 }
